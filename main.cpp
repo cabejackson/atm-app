@@ -21,7 +21,7 @@ int main() {
 
     do {
         showMenu();
-        cout << "Please choose an option (1, 2, 3): ";
+        cout << "Please choose an option (1, 2, 3, 4): ";
         cin >> option;
 
         switch(option) {
@@ -37,6 +37,7 @@ int main() {
                     cout << "Deposit must be greater than 0" << endl;
                 }
                 cout << "The Balance is now: $" << balance << endl;
+                cout << endl;
                 break;
             case 3:
                 cout << "How much would you like to withdraw?: $";
