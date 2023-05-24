@@ -1,10 +1,9 @@
 #include <iostream>
 using namespace std;
 
-//global variables
-double g_Balance = 500;
-double g_DepositAmount;
-double g_WithdrawAmount;
+struct Account {
+    double balance;
+};
 
 void showMenu() {
     cout << " --------Menu---------" << endl;
@@ -15,24 +14,24 @@ void showMenu() {
     cout << " ---------------------" << endl;
 };
 
-void checkBalance(){
-    cout << "Balance is: $" << g_Balance << endl;
+void checkBalance(const Account& account){
+    cout << "Balance is: $" << account.balance << endl;
 };
 
-void deposit(double g_DepositAmount) {
-    if (g_DepositAmount > 0)
-        g_Balance += g_DepositAmount;
+void deposit(Account& account, double amount) {
+    if (amount > 0)
+        account.balance += amount;
     else 
         cout << "Deposit must be greater than 0" << endl;
-    cout << "The Balance is now: $" << g_Balance << endl;
+    cout << "The Balance is now: $" << account.balance << endl;
     
     cout << endl;
 };
 
-void withdraw(double g_WithdrawAmount) {
-    if (g_WithdrawAmount <= g_Balance) {
-        g_Balance -= g_WithdrawAmount;
-        cout << "The Balance is now: $" << g_Balance << endl;
+void withdraw(Account& account, double amount) {
+    if (amount <= account.balance) {
+        account.balance -= amount;
+        cout << "The Balance is now: $" << account.balance << endl;
     } else
         cout << "Insufficient funds." << endl;
 };
@@ -41,6 +40,8 @@ int main() {
 
     // functionality - check balance, deposit, withdraw, show menu
     int menuOption;
+    Account account;
+    account.balance = 500;
 
     do {
         showMenu();
@@ -49,17 +50,19 @@ int main() {
 
         switch(menuOption) {
             case 1:
-                checkBalance();
+                checkBalance(account);
                 break;
             case 2:
+                double depositAmount;
                 cout << "Deposit amount: $";
-                cin >> g_DepositAmount;
-                deposit(g_DepositAmount);
+                cin >> depositAmount;
+                deposit(account, depositAmount);
                 break;
             case 3:
+                double withdrawAmount;
                 cout << "How much would you like to withdraw?: $";
-                cin >> g_WithdrawAmount;
-                withdraw(g_WithdrawAmount);
+                cin >> withdrawAmount;
+                withdraw(account, withdrawAmount);
                 break;
         };
     } while(menuOption != 4);
