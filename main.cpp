@@ -1,6 +1,9 @@
 #include <iostream>
 using namespace std;
 
+//global variables
+double g_Balance = 500;
+
 void showMenu() {
     cout << " --------Menu---------" << endl;
     cout << " 1. Check balance " << endl;
@@ -10,12 +13,15 @@ void showMenu() {
     cout << " ---------------------" << endl;
 };
 
+void checkBalance(){
+    cout << "Balance is: $" << g_Balance << endl;
+};
+
 int main() {
 
     // functionality - check balance, deposit, withdraw, show menu
 
     int menuOption;
-    double balance = 500;
     double depositAmount;
     double withdrawAmount;
 
@@ -26,25 +32,25 @@ int main() {
 
         switch(menuOption) {
             case 1:
-                cout << "Balance is: $" << balance << endl;
+                checkBalance();
                 break;
             case 2:
                 cout << "Deposit amount: $";
                 cin >> depositAmount;
                 if (depositAmount > 0) { 
-                balance += depositAmount;
+                g_Balance += depositAmount;
                 } else {
                     cout << "Deposit must be greater than 0" << endl;
                 }
-                cout << "The Balance is now: $" << balance << endl;
+                cout << "The Balance is now: $" << g_Balance << endl;
                 cout << endl;
                 break;
             case 3:
                 cout << "How much would you like to withdraw?: $";
                 cin >> withdrawAmount;
-                if (withdrawAmount <= balance) {
-                    balance -= withdrawAmount;
-                    cout << "The Balance is now: $" << balance << endl;
+                if (withdrawAmount <= g_Balance) {
+                    g_Balance -= withdrawAmount;
+                    cout << "The Balance is now: $" << g_Balance << endl;
                 } else {
                     cout << "Insufficient funds." << endl;
                 }
