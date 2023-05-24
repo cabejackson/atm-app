@@ -3,6 +3,7 @@ using namespace std;
 
 //global variables
 double g_Balance = 500;
+double g_DepositAmount;
 
 void showMenu() {
     cout << " --------Menu---------" << endl;
@@ -17,12 +18,22 @@ void checkBalance(){
     cout << "Balance is: $" << g_Balance << endl;
 };
 
+void deposit(double g_DepositAmount) {
+    if (g_DepositAmount > 0)
+        g_Balance += g_DepositAmount;
+    else 
+        cout << "Deposit must be greater than 0" << endl;
+    cout << "The Balance is now: $" << g_Balance << endl;
+    
+    cout << endl;
+}
+
 int main() {
 
     // functionality - check balance, deposit, withdraw, show menu
 
     int menuOption;
-    double depositAmount;
+    
     double withdrawAmount;
 
     do {
@@ -36,14 +47,8 @@ int main() {
                 break;
             case 2:
                 cout << "Deposit amount: $";
-                cin >> depositAmount;
-                if (depositAmount > 0) { 
-                g_Balance += depositAmount;
-                } else {
-                    cout << "Deposit must be greater than 0" << endl;
-                }
-                cout << "The Balance is now: $" << g_Balance << endl;
-                cout << endl;
+                cin >> g_DepositAmount;
+                deposit(g_DepositAmount);
                 break;
             case 3:
                 cout << "How much would you like to withdraw?: $";
