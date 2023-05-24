@@ -14,7 +14,7 @@ int main() {
 
     // functionality - check balance, deposit, withdraw, show menu
 
-    int option;
+    int menuOption;
     double balance = 500;
     double depositAmount;
     double withdrawAmount;
@@ -22,9 +22,9 @@ int main() {
     do {
         showMenu();
         cout << "Please choose an option (1, 2, 3, 4): ";
-        cin >> option;
+        cin >> menuOption;
 
-        switch(option) {
+        switch(menuOption) {
             case 1:
                 cout << "Balance is: $" << balance << endl;
                 break;
@@ -50,7 +50,7 @@ int main() {
                 }
                 break;
         };
-    } while(option != 4);
+    } while(menuOption != 4);
 
     return 0;
 }
