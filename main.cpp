@@ -4,6 +4,7 @@ using namespace std;
 //global variables
 double g_Balance = 500;
 double g_DepositAmount;
+double g_WithdrawAmount;
 
 void showMenu() {
     cout << " --------Menu---------" << endl;
@@ -26,15 +27,20 @@ void deposit(double g_DepositAmount) {
     cout << "The Balance is now: $" << g_Balance << endl;
     
     cout << endl;
-}
+};
+
+void withdraw(double g_WithdrawAmount) {
+    if (g_WithdrawAmount <= g_Balance) {
+        g_Balance -= g_WithdrawAmount;
+        cout << "The Balance is now: $" << g_Balance << endl;
+    } else
+        cout << "Insufficient funds." << endl;
+};
 
 int main() {
 
     // functionality - check balance, deposit, withdraw, show menu
-
     int menuOption;
-    
-    double withdrawAmount;
 
     do {
         showMenu();
@@ -52,13 +58,8 @@ int main() {
                 break;
             case 3:
                 cout << "How much would you like to withdraw?: $";
-                cin >> withdrawAmount;
-                if (withdrawAmount <= g_Balance) {
-                    g_Balance -= withdrawAmount;
-                    cout << "The Balance is now: $" << g_Balance << endl;
-                } else {
-                    cout << "Insufficient funds." << endl;
-                }
+                cin >> g_WithdrawAmount;
+                withdraw(g_WithdrawAmount);
                 break;
         };
     } while(menuOption != 4);
