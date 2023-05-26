@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 using namespace std;
 
 
@@ -29,6 +30,19 @@ void deposit(Account& account, double amount) {
     cout << endl;
 };
 
+void testDeposit(Account& account)
+{
+    // Account account; //create an instance of account
+    // account.balance = 0; //initialize the balance 
+
+    //Deposit $100
+    double depositAmount = 100;
+    deposit(account, depositAmount);
+
+    //assert that the balance is now $100
+    assert(account.balance == 100);
+};
+
 void withdraw(Account& account, double amount) {
     if (amount <= account.balance) {
         account.balance -= amount;
@@ -49,6 +63,7 @@ int main() {
     // functionality - check balance, deposit, withdraw, show menu
     int menuOption;
     Account account;
+    testDeposit(account);
     account.balance = 500;
 
     do {
@@ -68,6 +83,8 @@ int main() {
                 break;
         };
     } while(menuOption != 4);
+
+
 
     return 0;
 }
