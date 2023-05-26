@@ -2,7 +2,6 @@
 #include <cassert>
 using namespace std;
 
-
 struct Account {
     double balance;
 };
@@ -33,7 +32,7 @@ void deposit(Account& account, double amount) {
 void testDeposit(Account& account)
 {
     // Account account; //create an instance of account
-    // account.balance = 0; //initialize the balance 
+    account.balance = 0; //initialize the balance 
 
     //Deposit $100
     double depositAmount = 100;
@@ -63,7 +62,6 @@ int main() {
     // functionality - check balance, deposit, withdraw, show menu
     int menuOption;
     Account account;
-    testDeposit(account);
     account.balance = 500;
 
     do {
@@ -84,7 +82,8 @@ int main() {
         };
     } while(menuOption != 4);
 
-
+    //tests
+    testDeposit(account);
 
     return 0;
 }
