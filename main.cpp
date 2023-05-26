@@ -36,6 +36,13 @@ void withdraw(Account& account, double amount) {
         cout << "Insufficient funds." << endl;
 };
 
+double getUserInput() {
+    double amount;
+    cout << "Enter amount: $";
+    cin >> amount;
+    return amount;
+}
+
 int main() {
 
     // functionality - check balance, deposit, withdraw, show menu
@@ -53,16 +60,10 @@ int main() {
                 checkBalance(account);
                 break;
             case 2:
-                double depositAmount;
-                cout << "Deposit amount: $";
-                cin >> depositAmount;
-                deposit(account, depositAmount);
+                deposit(account, getUserInput());
                 break;
             case 3:
-                double withdrawAmount;
-                cout << "How much would you like to withdraw?: $";
-                cin >> withdrawAmount;
-                withdraw(account, withdrawAmount);
+                withdraw(account, getUserInput());
                 break;
         };
     } while(menuOption != 4);
