@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+
 struct Account {
     double balance;
 };
@@ -14,7 +15,7 @@ void showMenu() {
     cout << " ---------------------" << endl;
 };
 
-void checkBalance(const Account& account){
+void displayBalance(Account& account){
     cout << "Balance is: $" << account.balance << endl;
 };
 
@@ -23,7 +24,7 @@ void deposit(Account& account, double amount) {
         account.balance += amount;
     else 
         cout << "Deposit must be greater than 0" << endl;
-    cout << "The Balance is now: $" << account.balance << endl;
+    displayBalance(account);
     
     cout << endl;
 };
@@ -31,7 +32,7 @@ void deposit(Account& account, double amount) {
 void withdraw(Account& account, double amount) {
     if (amount <= account.balance) {
         account.balance -= amount;
-        cout << "The Balance is now: $" << account.balance << endl;
+       displayBalance(account);
     } else
         cout << "Insufficient funds." << endl;
 };
@@ -57,7 +58,7 @@ int main() {
 
         switch(menuOption) {
             case 1:
-                checkBalance(account);
+                displayBalance(account);
                 break;
             case 2:
                 deposit(account, getUserInput());
