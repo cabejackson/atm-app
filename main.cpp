@@ -50,6 +50,19 @@ void withdraw(Account& account, double amount) {
         cout << "Insufficient funds." << endl;
 };
 
+void testWithdrawl(Account& account)
+{
+    // Account account; //create an instance of account
+    account.balance = 0; //initialize the balance 
+
+    //withdraw $100
+    double withdrawAmount = 100;
+    withdraw(account, withdrawAmount);
+
+    //assert that the balance is now $100
+    assert(account.balance == 100);
+};
+
 double getUserInput() {
     double amount;
     cout << "Enter amount: $";
