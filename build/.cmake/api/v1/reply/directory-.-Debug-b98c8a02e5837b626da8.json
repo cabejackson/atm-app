@@ -1,0 +1,117 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 125,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 135,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 146,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 158,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 182,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/Catch2",
+			"paths" : 
+			[
+				"/Users/cabejackson/Documents/projs/learning/cpp_pract_atm_app/build/Catch2Config.cmake",
+				"/Users/cabejackson/Documents/projs/learning/cpp_pract_atm_app/build/Catch2ConfigVersion.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "share/doc/Catch2",
+			"paths" : 
+			[
+				{
+					"from" : "docs",
+					"to" : "."
+				}
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/Catch2",
+			"paths" : 
+			[
+				"extras/ParseAndAddCatchTests.cmake",
+				"extras/Catch.cmake",
+				"extras/CatchAddTests.cmake",
+				"extras/CatchShardTests.cmake",
+				"extras/CatchShardTestsImpl.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "share/Catch2",
+			"paths" : 
+			[
+				"extras/gdbinit",
+				"extras/lldbinit"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 5,
+			"component" : "Unspecified",
+			"destination" : "share/pkgconfig",
+			"paths" : 
+			[
+				"/Users/cabejackson/Documents/projs/learning/cpp_pract_atm_app/build/catch2.pc",
+				"/Users/cabejackson/Documents/projs/learning/cpp_pract_atm_app/build/catch2-with-main.pc"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	}
+}

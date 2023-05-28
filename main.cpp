@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cassert>
+// #include <cassert>
 using namespace std;
 
 struct Account {
@@ -26,21 +26,21 @@ void deposit(Account& account, double amount) {
         cout << "Deposit must be greater than 0" << endl;
     displayBalance(account);
     
-    cout << endl;
+    // cout << endl;
 };
 
-void testDeposit(Account& account)
-{
-    // Account account; //create an instance of account
-    account.balance = 0; //initialize the balance 
+// void testDeposit(Account& account)
+// {
+//     // Account account; //create an instance of account
+//     account.balance = 0; //initialize the balance 
 
-    //Deposit $100
-    double depositAmount = 100;
-    deposit(account, depositAmount);
+//     //Deposit $100
+//     double depositAmount = 100;
+//     deposit(account, depositAmount);
 
-    //assert that the balance is now $100
-    assert(account.balance == 100);
-};
+//     //assert that the balance is now $100
+//     assert(account.balance == 100);
+// };
 
 void withdraw(Account& account, double amount) {
     if (amount <= account.balance) {
@@ -50,18 +50,31 @@ void withdraw(Account& account, double amount) {
         cout << "Insufficient funds." << endl;
 };
 
-void testWithdrawl(Account& account)
-{
-    // Account account; //create an instance of account
-    account.balance = 0; //initialize the balance 
+// void testWithdrawl(Account& account)
+// {
+//     // Account account; //create an instance of account
+//     account.balance = 100; //initialize the balance 
 
-    //withdraw $100
-    double withdrawAmount = 100;
-    withdraw(account, withdrawAmount);
+//     //withdraw $100
+//     double withdrawAmount = 100;
+//     withdraw(account, withdrawAmount);
 
-    //assert that the balance is now $100
-    assert(account.balance == 100);
-};
+//     //assert that the balance is now $100
+//     assert(account.balance == 0);
+// };
+
+// void testWithdrawl2(Account& account)
+// {
+//     // Account account; //create an instance of account
+//     account.balance = 100; //initialize the balance 
+
+//     //withdraw $100
+//     double withdrawAmount = 101;
+//     withdraw(account, withdrawAmount);
+
+//     //assert that the balance is now $100
+//     assert(account.balance == 100);
+// };
 
 double getUserInput() {
     double amount;
@@ -96,7 +109,12 @@ int main() {
     } while(menuOption != 4);
 
     //tests
-    testDeposit(account);
+    // cout << "test 1: " << endl;
+    // testDeposit(account);
+    // cout << "test 2: " << endl;
+    // testWithdrawl(account);
+    // cout << "test 3: " << endl;
+    // testWithdrawl2(account);
 
     return 0;
 }

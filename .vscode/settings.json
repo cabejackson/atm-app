@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "iostream": "cpp"
+    },
+    "cmake.sourceDirectory": "/Users/cabejackson/Documents/projs/learning/cpp_pract_atm_app/tests/Catch2"
+}
