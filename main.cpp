@@ -108,7 +108,7 @@ int main() {
         };
     } while(menuOption != 4);
 
-    //tests
+    // tests
     // cout << "test 1: " << endl;
     // testDeposit(account);
     // cout << "test 2: " << endl;
