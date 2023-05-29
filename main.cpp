@@ -1,5 +1,5 @@
 #include <iostream>
-// #include <cassert>
+#include <catch2/catch_all.hpp>
 using namespace std;
 
 struct Account {
@@ -27,6 +27,18 @@ void deposit(Account& account, double amount) {
     displayBalance(account);
     
     // cout << endl;
+};
+
+TEST_CASE("Deposit increases total balance"){
+    Account account;
+    account.balance = 0; //initialize the balance 
+    
+    //Deposit $100
+    double depositAmount = 100;
+    deposit(account, depositAmount);
+
+    //assert that the balance is now $100
+    REQUIRE(account.balance == 100);
 };
 
 // void testDeposit(Account& account)
@@ -83,7 +95,14 @@ double getUserInput() {
     return amount;
 }
 
-int main() {
+int main(int argc, char* argv[]) {
+
+    Catch::Session session; // Create a Catch2 session
+    int returnCode = session.applyCommandLine(argc, argv); // Process command-line arguments
+    if (returnCode != 0) // Return early if there's a command-line error
+        return returnCode;
+    
+    return session.run(); // Run the tests
 
     // functionality - check balance, deposit, withdraw, show menu
     int menuOption;
