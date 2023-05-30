@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.26.3)
 
 project(atm_app LANGUAGES CXX)
 
-add_executable(atm_app main.cpp)
+add_executable(atm_app main.cpp functions.cpp tests.cpp)
 
 # Add Catch2 as a subdirectory
 add_subdirectory(Catch2)
