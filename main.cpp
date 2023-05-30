@@ -39,11 +39,25 @@ TEST_CASE("Deposit increases total balance"){
     REQUIRE(account.balance == 100);
 };
 
+TEST_CASE("Negative deposit does not change total balance"){
+    Account account; //create an instance of account
+    account.balance = 0; //initialize the balance 
+    
+    //Deposit $100
+    double depositAmount = -100;
+    deposit(account, depositAmount);
+
+    //assert that the balance is now $100
+    REQUIRE(account.balance == 0);
+};
+
 void withdraw(Account& account, double amount) {
-    if (amount <= account.balance) {
+    if (amount <= account.balance && amount > 0) {
         account.balance -= amount;
-       displayBalance(account);
-    } else
+        displayBalance(account);
+    } else if (amount <= 0)
+        cout << "Withdraw must be greater than 0" << endl;
+    else
         cout << "Insufficient funds." << endl;
 };
 
@@ -57,7 +71,6 @@ TEST_CASE("Withdraw decreases total balance"){
 
     //assert that the balance is now $50
     REQUIRE(account.balance == 50);
-
 };
 
 TEST_CASE("Withdraw does not allow overdraw"){
@@ -70,7 +83,18 @@ TEST_CASE("Withdraw does not allow overdraw"){
 
     //assert that the balance is still 100
     REQUIRE(account.balance == 100);
+};
 
+TEST_CASE("Negative withdraw does not change total balance"){
+    Account account; //create an instance of account
+    account.balance = 100; //initialize the balance
+
+    //withdraw -10
+    double withdrawAmount = -10;
+    withdraw(account, withdrawAmount);
+
+    //assert that the balance is still 100
+    REQUIRE(account.balance == 100);
 };
 
 double getUserInput() {
