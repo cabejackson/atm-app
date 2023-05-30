@@ -43,7 +43,7 @@ TEST_CASE("Negative deposit does not change total balance"){
     Account account; //create an instance of account
     account.balance = 0; //initialize the balance 
     
-    //Deposit $100
+    //Deposit -$100
     double depositAmount = -100;
     deposit(account, depositAmount);
 
@@ -89,7 +89,7 @@ TEST_CASE("Negative withdraw does not change total balance"){
     Account account; //create an instance of account
     account.balance = 100; //initialize the balance
 
-    //withdraw -10
+    //withdraw -$10
     double withdrawAmount = -10;
     withdraw(account, withdrawAmount);
 
