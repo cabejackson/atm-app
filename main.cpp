@@ -97,6 +97,29 @@ TEST_CASE("Negative withdraw does not change total balance"){
     REQUIRE(account.balance == 100);
 };
 
+TEST_CASE("Multiple deposits and withdrawals") {
+    Account account; //create an instance of account
+    account.balance = 0; //initialize the balance
+
+    deposit(account, 100);
+    REQUIRE(account.balance == 100);
+
+    withdraw(account, 25);
+    REQUIRE(account.balance == 75);
+
+    deposit(account, 100);
+    REQUIRE(account.balance == 175);
+
+    withdraw(account, 25);
+    REQUIRE(account.balance == 150);
+
+    deposit(account, 100);
+    REQUIRE(account.balance == 250);
+
+    withdraw(account, 50);
+    REQUIRE(account.balance == 200);
+}
+
 double getUserInput() {
     double amount;
     cout << "Enter amount: $";
