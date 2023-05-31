@@ -40,20 +40,20 @@ void ATM::showMenu() {
     cout << " 3. Withdraw " << endl;
     cout << " 4. Exit " << endl;
     cout << " ---------------------" << endl;
-};
+}
 
 void ATM::displayBalance(){
     cout << "Balance is: $" << account.getBalance() << endl;
-};
+}
 
 void ATM::deposit() {
     double amount = getUserInput();
     account.deposit(amount);
     displayBalance();
-};
+}
 
 void ATM::withdraw() {
     double amount = getUserInput();
     account.withdraw(amount);
     displayBalance();
-};
+}

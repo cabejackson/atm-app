@@ -3,10 +3,6 @@
 
 #include "bankaccount.h"
 
-// struct Account {
-//     double balance;
-// };
-
 class ATM {
 public:
     ATM(BankAccount& account);
@@ -20,6 +16,5 @@ private:
     void deposit();
     void withdraw();
 };
-
 
 #endif

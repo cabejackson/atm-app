@@ -15,7 +15,6 @@ void BankAccount::deposit(double amount){
         balance += amount;
     else
         cout << "Deposit must be greater than 0" << endl;
-    
 }
 
 void BankAccount::withdraw(double amount){
