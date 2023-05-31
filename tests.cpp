@@ -1,9 +1,10 @@
 #include <iostream>
-#include "functions.h"
+#include "bankaccount.h"
+#include "atm.h"
 #include <catch2/catch_all.hpp>
 
 TEST_CASE("Deposit increases total balance"){
-    Account account; //create an instance of account
+    BankAccount account; //create an instance of account
     account.balance = 0; //initialize the balance 
     
     //Deposit $100
@@ -15,7 +16,7 @@ TEST_CASE("Deposit increases total balance"){
 };
 
 TEST_CASE("Negative deposit does not change total balance"){
-    Account account; //create an instance of account
+    BankAccount account; //create an instance of account
     account.balance = 0; //initialize the balance 
     
     //Deposit -$100
@@ -27,7 +28,7 @@ TEST_CASE("Negative deposit does not change total balance"){
 };
 
 TEST_CASE("Withdraw decreases total balance"){
-    Account account; //create an instance of account
+    BankAccount account; //create an instance of account
     account.balance = 100; //initialize the balance
 
     //withdraw $50
@@ -39,7 +40,7 @@ TEST_CASE("Withdraw decreases total balance"){
 };
 
 TEST_CASE("Withdraw does not allow overdraw"){
-    Account account; //create an instance of account
+    BankAccount account; //create an instance of account
     account.balance = 100; //initialize the balance
 
     //withdraw $101 (more than current balance)
@@ -51,7 +52,7 @@ TEST_CASE("Withdraw does not allow overdraw"){
 };
 
 TEST_CASE("Negative withdraw does not change total balance"){
-    Account account; //create an instance of account
+    BankAccount account; //create an instance of account
     account.balance = 100; //initialize the balance
 
     //withdraw -$10
@@ -63,7 +64,7 @@ TEST_CASE("Negative withdraw does not change total balance"){
 };
 
 TEST_CASE("Multiple deposits and withdrawals") {
-    Account account; //create an instance of account
+    BankAccount account; //create an instance of account
     account.balance = 0; //initialize the balance
 
     deposit(account, 100);
