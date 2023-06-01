@@ -59,17 +59,19 @@ TEST_CASE("Withdraw does not allow overdraw"){
     REQUIRE(account.getBalance() == expectedBalance);
 };
 
-// TEST_CASE("Negative withdraw does not change total balance"){
-//     BankAccount account; //create an instance of account
-//     account.balance = 100; //initialize the balance
+TEST_CASE("Negative withdraw does not change total balance"){
+    //arrange
+    BankAccount account; //create an instance of account
+    account.setBalance(100); //initialize the balance
 
-//     //withdraw -$10
-//     double withdrawAmount = -10;
-//     withdraw(account, withdrawAmount);
+    //act - withdraw -$10
+    double withdrawAmount = -10;
+    account.withdraw(withdrawAmount);
 
-//     //assert that the balance is still 100
-//     REQUIRE(account.balance == 100);
-// };
+    //assert that the balance is still 100
+    double expectedBalance = 100;
+    REQUIRE(account.getBalance() == expectedBalance);
+};
 
 // TEST_CASE("Multiple deposits and withdrawals") {
 //     BankAccount account; //create an instance of account
