@@ -4,28 +4,32 @@
 #include <catch2/catch_all.hpp>
 
 TEST_CASE("Deposit increases total balance"){
+    //arrange
     BankAccount account; //create an instance of account
     account.setBalance(0); //initialize the balance 
     
-    //Deposit $100
+    //act - Deposit $100
     double depositAmount = 100;
     account.deposit(depositAmount);
 
     //assert that the balance is now $100
-    REQUIRE(account.getBalance() == 100);
+    double expectedBalance = 100;
+    REQUIRE(account.getBalance() == expectedBalance);
 };
 
-// TEST_CASE("Negative deposit does not change total balance"){
-//     BankAccount account; //create an instance of account
-//     account.balance = 0; //initialize the balance 
+TEST_CASE("Negative deposit does not change total balance"){
+    //arrange
+    BankAccount account; //create an instance of account
+    account.setBalance(0); //initialize the balance 
     
-//     //Deposit -$100
-//     double depositAmount = -100;
-//     deposit(account, depositAmount);
+    //act -Deposit -$100
+    double depositAmount = -100;
+    account.deposit(depositAmount);
 
-//     //assert that the balance is now $100
-//     REQUIRE(account.balance == 0);
-// };
+    //assert that the balance is now $100
+    double expectedBalance = 0;
+    REQUIRE(account.getBalance() == expectedBalance);
+};
 
 // TEST_CASE("Withdraw decreases total balance"){
 //     BankAccount account; //create an instance of account
