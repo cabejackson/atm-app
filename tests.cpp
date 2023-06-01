@@ -36,7 +36,7 @@ TEST_CASE("Withdraw decreases total balance"){
     BankAccount account; //create an instance of account
     account.setBalance(100); //initialize the balance
 
-    //act -withdraw $50
+    //act - withdraw $50
     double withdrawAmount = 50;
     account.withdraw(withdrawAmount);
 
@@ -45,17 +45,19 @@ TEST_CASE("Withdraw decreases total balance"){
     REQUIRE(account.getBalance() == expectedBalance);
 };
 
-// TEST_CASE("Withdraw does not allow overdraw"){
-//     BankAccount account; //create an instance of account
-//     account.balance = 100; //initialize the balance
+TEST_CASE("Withdraw does not allow overdraw"){
+    //arrange
+    BankAccount account; //create an instance of account
+    account.setBalance(100); //initialize the balance
 
-//     //withdraw $101 (more than current balance)
-//     double withdrawAmount = 101;
-//     withdraw(account, withdrawAmount);
+    //act - withdraw $101 (more than current balance)
+    double withdrawAmount = 101;
+    account.withdraw(withdrawAmount);
 
-//     //assert that the balance is still 100
-//     REQUIRE(account.balance == 100);
-// };
+    //assert that the balance is still 100
+    double expectedBalance = 100;
+    REQUIRE(account.getBalance() == expectedBalance);
+};
 
 // TEST_CASE("Negative withdraw does not change total balance"){
 //     BankAccount account; //create an instance of account
