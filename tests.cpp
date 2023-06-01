@@ -73,25 +73,20 @@ TEST_CASE("Negative withdraw does not change total balance"){
     REQUIRE(account.getBalance() == expectedBalance);
 };
 
-// TEST_CASE("Multiple deposits and withdrawals") {
-//     BankAccount account; //create an instance of account
-//     account.balance = 0; //initialize the balance
+TEST_CASE("Multiple deposits and withdrawals") {
+    //arrange
+    BankAccount account; //create an instance of account
+    account.setBalance(0); //initialize the balance
 
-//     deposit(account, 100);
-//     REQUIRE(account.balance == 100);
+    //act
+    account.deposit(100);
+    account.withdraw(25);
+    account.deposit(100);
+    account.withdraw(25);
+    account.deposit(100);
+    account.withdraw(50);
 
-//     withdraw(account, 25);
-//     REQUIRE(account.balance == 75);
-
-//     deposit(account, 100);
-//     REQUIRE(account.balance == 175);
-
-//     withdraw(account, 25);
-//     REQUIRE(account.balance == 150);
-
-//     deposit(account, 100);
-//     REQUIRE(account.balance == 250);
-
-//     withdraw(account, 50);
-//     REQUIRE(account.balance == 200);
-// };
+    //assert that the balance is 200
+    double expectedBalance = 200;
+    REQUIRE(account.getBalance() == expectedBalance);
+};
